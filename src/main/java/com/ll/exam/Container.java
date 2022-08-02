@@ -36,7 +36,7 @@ public class Container {
         return names;
     }
 
-    public static Object getObj(Class cls) {
-        return objects.get(cls);
+    public static <T> T getObj(Class<T> cls) {
+        return (T)objects.get(cls);
     }
 }
