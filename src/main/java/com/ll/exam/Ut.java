@@ -1,28 +1,25 @@
 package com.ll.exam;
 
-import com.ll.exam.article.controller.ArticleController;
-import com.sun.tools.javac.code.TypeAnnotationPosition;
-
 import java.beans.Introspector;
 import java.lang.reflect.InvocationTargetException;
 
 public class Ut {
     public static class cls {
 
-        public static Object newObj(Class cls, Object defalutValue) {
+        public static <T> T newObj(Class<T> cls, T defalutValue) {
             try {
-                cls.getDeclaredConstructor().newInstance();
+                return cls.getDeclaredConstructor().newInstance();
             } catch (InstantiationException e) {
-                throw new RuntimeException(e);
+                return defalutValue;
             } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
+                return defalutValue;
             } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
+                return defalutValue;
             } catch (NoSuchMethodException e) {
-                throw new RuntimeException(e);
+                return defalutValue;
             }
         }
-    }
+    };
 
     public static class str {
         public static String decapitalize(String str) {
